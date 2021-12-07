@@ -1,4 +1,4 @@
-class Opportunities < ActiveRecord::Migration[6.0]
+class CreateOpportunities < ActiveRecord::Migration[6.0]
   def change
     create_table :opportunities, {:id => false} do |t|
       t.string :id
