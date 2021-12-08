@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @source.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @source.rating %>
+</p>
+
+<p>
+  <strong>Root domain:</strong>
+  <%= @source.root_domain %>
+</p>
+
+<p>
+  <strong>Logo file:</strong>
+  <%= @source.logo_file %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @source.description %>
+</p>
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

@@ -64,6 +64,6 @@ class OpportunitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def opportunity_params
-      params.require(:opportunity).permit(:title, :company, :url, :source)
+      params.require(:opportunity).permit(:job_title, :company_name, :job_url, :source)
     end
 end

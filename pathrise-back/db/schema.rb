@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_010222) do
+ActiveRecord::Schema.define(version: 2021_12_08_151140) do
 
   create_table "opportunities", id: false, force: :cascade do |t|
     t.string "id"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2021_12_07_010222) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "source"
+    t.integer "source_id"
+    t.index ["source_id"], name: "index_opportunities_on_source_id"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "name"
+    t.string "rating"
+    t.string "root_domain"
+    t.string "logo_file"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

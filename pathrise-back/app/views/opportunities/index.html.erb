@@ -16,9 +16,9 @@
   <tbody>
     <% @opportunities.each do |opportunity| %>
       <tr>
-        <td><%= opportunity.title %></td>
-        <td><%= opportunity.company %></td>
-        <td><%= opportunity.url %></td>
+        <td><%= opportunity.job_title %></td>
+        <td><%= opportunity.company_name %></td>
+        <td><%= opportunity.job_url %></td>
         <td><%= opportunity.source %></td>
         <td><%= link_to 'Show', opportunity %></td>
         <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
