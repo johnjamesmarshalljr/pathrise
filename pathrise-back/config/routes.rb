@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :sources
-  resources :opportunities
+  resources :sources do
+    resources :opportunities
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

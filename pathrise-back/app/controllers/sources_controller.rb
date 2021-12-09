@@ -4,10 +4,15 @@ class SourcesController < ApplicationController
   # GET /sources or /sources.json
   def index
     @sources = Source.all
+
+    # opportunities = 
+    render json: SourcesSerializer.new(@sources).to_json
+    # , include: [:opportunities]
   end
 
   # GET /sources/1 or /sources/1.json
   def show
+    render json: SourcesSerializer.new(@source, include: @source.opportunities).to_json
   end
 
   # GET /sources/new
