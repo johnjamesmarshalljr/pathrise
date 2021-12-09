@@ -8,7 +8,10 @@ class OpportunitiesSerializer
   attribute :job_title
 
   attribute :source_name do |object|
-    object.name
+    binding.pry
+    object.source.name
   end
+
+  belongs_to :source
 
 end

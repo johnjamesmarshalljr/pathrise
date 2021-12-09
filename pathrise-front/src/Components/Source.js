@@ -18,11 +18,15 @@ const Source = (props) => {
 
     return (
       <div className="Source">
-        <ul>
-          <li onClick={ ()=>handleClick(props.id) }>{props.source.name}</li>
-            <p>{props.source.description}</p>
-        
-        </ul>
+        {/* <ul> */}
+        <img className="logo"
+              src={props.source.logo_file}
+              alt="logo"
+            />
+          <li className="list-item" onClick={ ()=>handleClick(props.id) }>{props.source.name} </li>
+            <p className="description"><em>{props.source.description}</em></p>
+            
+        {/* </ul> */}
       </div>
     );
   }

@@ -4,6 +4,7 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities or /opportunities.json
   def index
     @opportunities = Opportunity.all
+    render json: OpportunitiesSerializer.new(@opportunities).to_json
   end
 
   # GET /opportunities/1 or /opportunities/1.json

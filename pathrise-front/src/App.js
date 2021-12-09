@@ -43,7 +43,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      Job Sources
       {renderSources()}
     </div>
   );

@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Opportunities = (props) => {
     const oppsForSource = useSelector(state => state.sources.opportunities)
+    const currentSource = useSelector(state => state.sources.currentSource)
+
     const [opps, setOpps] = useState(null)
     
     useEffect(() => {
@@ -11,28 +13,31 @@ const Opportunities = (props) => {
       setOpps(oppsForSource)      
     }, [oppsForSource]);
 
-    const renderOpps = () => {
-      debugger
-      if(opps){
-      opps.map(opp => {
-        return (
-          <Opportunity opportunity={opp} id={opp.id} key={opp.id}/>
-        )        
-      })
-    }
+    const findCurrentSource = () => {
+      if(currentSource){
+           return currentSource.name
+      }else{
+        return ''
+      }
+    
+  }
+
+  const renderOpps = () => {
+    let rows = []
+    rows = oppsForSource.map(opp => {
+      return (
+        <Opportunity opportunity={opp} id={opp.id} key={opp.id}/>
+      )        
+    })
+    return !rows ? "" : <ul id="items-list" className="model-list">{rows}</ul>
   }
 
 
     return (
-        <div>
-          {/* {renderOpps(opps)} */}
-            {oppsForSource ? oppsForSource.map(opp => {
-            return (
-              <Opportunity opportunity={opp} id={opp.id} key={opp.id}/>
-            )        
-          }) : '' 
-          } 
-        </div>
+        <>
+          <h2>Job Source: {findCurrentSource()} </h2>
+          {oppsForSource ? renderOpps() : ''}
+        </>
             )
 }
 

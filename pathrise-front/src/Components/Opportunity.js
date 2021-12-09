@@ -15,11 +15,15 @@ const Opportunity = (props) => {
 
     return (
       <div className="Source">
-        <ul>
-          <li onClick={ ()=>handleClick(props.id) }>{props.opportunity.company_name}</li>
-            <p>{props.opportunity.job_title}</p>
+        <img className="logo"
+              src={props.opportunity.source.logo_file}
+              alt="logo"
+            />
+          <li className="list-item" onClick={ ()=>handleClick(props.id) }><b> {props.opportunity.company_name}</b></li>
+            <p className="description">Title: {props.opportunity.job_title}<br/><em>Link:</em> <a href={props.opportunity.job_url}>{props.opportunity.job_url}</a></p>
+            
         
-        </ul>
+   
       </div>
     );
   }
