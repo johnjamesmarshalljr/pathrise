@@ -25,9 +25,9 @@ class Opportunity < ApplicationRecord
             source = Source.all.select{|s| s.root_domain.include?(domain)}
             self.source = source[0]
         elsif domain.include?(self.company_name.downcase.gsub(/\s+/, "")) 
-            self.source = Source.find(1)
+            self.source = Source.find_by(name: "Company Website")
         else
-            self.source = Source.find(2)   
+            self.source = Source.find_by(name: "Unknown")   
         end
         
         self.save

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 const Opportunities = (props) => {
     const oppsForSource = useSelector(state => state.sources.opportunities)
     const currentSource = useSelector(state => state.sources.currentSource)
+    const [name, setName] = useState("")
     const [opps, setOpps] = useState(null)
     
     useEffect(() => {
@@ -14,27 +15,61 @@ const Opportunities = (props) => {
     const findCurrentSource = () => {
       if(currentSource){
            return currentSource.name
+
       }else{
         return ''
       }
     }
 
+    const handleChange = (e) => {
+      setName(e.target.value)
+      filterOppsFromInput();
+    }
+
+   const filterOppsFromInput = () => {
+      return oppsForSource.filter((opp) =>
+        opp.job_title.toUpperCase().includes(name.toUpperCase())
+      );
+    };
+
   const renderOpps = () => {
     let rows = []
     if(oppsForSource.length === 0){
-      return <ul className="model-list" > <li className="list-item">No Opportunities for this Source</li></ul>
+      return <ul className="model-list" > <li className="list-item">No current available job opportunities for this Source</li></ul>
     }
-    rows = oppsForSource.map(opp => {
+   rows = filterOppsFromInput().map(opp => {
       return (
         <Opportunity opportunity={opp} id={opp.id} key={opp.id}/>
       )        
-    })
+    }) 
     return !rows ? "" : <ul id="items-list" className="model-list">{rows}</ul>
+  }
+
+  const count = () => {
+    if(oppsForSource){
+      if(oppsForSource.length === 1){
+        return oppsForSource.length + ' opportunity'
+      }
+      return oppsForSource.length + ' opportunities'
+ }else{
+   return 'Finding current job opportunities, please wait ...'
+ }
   }
 
     return (
         <>
           <h2>Job Source: {findCurrentSource()} </h2>
+
+          <input
+          class="newnewnew"
+          placeholder="SEARCH POSITIONS"
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={name}
+          />
+
+          <h2 className="model-list">{count()}</h2>
           {oppsForSource ? renderOpps() : ''}
         </>
             )
