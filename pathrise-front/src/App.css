@@ -141,8 +141,14 @@ button {
 
 .newnewnew {
   font-family: "Montserrat";
-
-  display: inline-block;
+  width: 20%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1rem;
+  /* position: relative; */
+  justify-self: start;
+  /* display: flex; */
   padding: 15px;
   background-color: white;
   border: 2px solid black;
@@ -152,4 +158,8 @@ button {
   box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(0, 0, 0, 0.62);
   letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+.no {
+  font-size: 20px;
 }

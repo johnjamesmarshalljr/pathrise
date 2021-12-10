@@ -35,7 +35,7 @@ const Opportunities = (props) => {
   const renderOpps = () => {
     let rows = []
     if(oppsForSource.length === 0){
-      return <ul className="model-list" > <li className="list-item">No current available job opportunities for this Source</li></ul>
+      return <ul className="model-list" > <li className="list-item"><p className="no"><em>There aren't any current available job opportunities for this Source</em></p></li></ul>
     }
    rows = filterOppsFromInput().map(opp => {
       return (
@@ -58,19 +58,21 @@ const Opportunities = (props) => {
 
     return (
         <>
-          <h2>Job Source: {findCurrentSource()} </h2>
-
-          <input
-          class="newnewnew"
-          placeholder="SEARCH POSITIONS"
-          type="text"
-          name="name"
-          onChange={handleChange}
-          value={name}
-          />
-
+          <h2> Source: {findCurrentSource()} </h2>
+          
           <h2 className="model-list">{count()}</h2>
+          {/* <div className="center"> */}
+            <input
+            className="newnewnew"
+            placeholder="SEARCH POSITIONS"
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={name}
+            />
+          {/* </div> */}
           {oppsForSource ? renderOpps() : ''}
+          
         </>
             )
 }
