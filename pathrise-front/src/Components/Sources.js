@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Source from './Source.js'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const Sources = (props) => {
+const Sources = () => {
     const allSources = useSelector(state => state.sources.allSources)
 
     const renderSources = () => {
@@ -17,10 +17,11 @@ const Sources = (props) => {
 
     return (
         <section className="list-view">
+          <h2>Job Sources</h2>
             {renderSources()} 
         </section>
-            )
+          )
 }
 
 
-export default Sources
+export default Sources;

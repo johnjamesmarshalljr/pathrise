@@ -5,11 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 const Opportunities = (props) => {
     const oppsForSource = useSelector(state => state.sources.opportunities)
     const currentSource = useSelector(state => state.sources.currentSource)
-
     const [opps, setOpps] = useState(null)
     
     useEffect(() => {
-      
       setOpps(oppsForSource)      
     }, [oppsForSource]);
 
@@ -19,11 +17,13 @@ const Opportunities = (props) => {
       }else{
         return ''
       }
-    
-  }
+    }
 
   const renderOpps = () => {
     let rows = []
+    if(oppsForSource.length === 0){
+      return <ul className="model-list" > <li className="list-item">No Opportunities for this Source</li></ul>
+    }
     rows = oppsForSource.map(opp => {
       return (
         <Opportunity opportunity={opp} id={opp.id} key={opp.id}/>
@@ -31,7 +31,6 @@ const Opportunities = (props) => {
     })
     return !rows ? "" : <ul id="items-list" className="model-list">{rows}</ul>
   }
-
 
     return (
         <>
@@ -42,4 +41,4 @@ const Opportunities = (props) => {
 }
 
 
-export default Opportunities
+export default Opportunities;

@@ -1,12 +1,6 @@
 import { combineReducers } from 'redux'
 import * as actionTypes from './actionTypes'
 
-const initialState = {
-    allSources: null,
-    currentSource: null,
-    opportunities: null
-}
-
 const sourcesReducer = (state = [], action) => {
     switch (action.type) {
         case actionTypes.RESET_SOURCES_STATE:
