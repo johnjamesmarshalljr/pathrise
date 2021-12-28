@@ -9,7 +9,7 @@ export const resetState = () => {
 
 export const getAllSources = () => {
     return dispatch => {
-        return axios.get('http://localhost:3001/sources')
+        return axios.get('https://intense-mesa-81857.herokuapp.com/sources')
         .then(data => {
             dispatch(setAllSources(data.data.object))
         })
@@ -18,7 +18,7 @@ export const getAllSources = () => {
 
 export const getSource = (id) => {
     return dispatch => {
-        return axios.get(`http://localhost:3001/sources/${id}`)
+        return axios.get(`https://intense-mesa-81857.herokuapp.com/sources/${id}`)
         .then(data => {
             dispatch(setCurrentSource(data.data))
             

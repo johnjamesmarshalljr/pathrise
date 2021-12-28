@@ -5,12 +5,12 @@ require 'domainatrix'
 class Opportunity < ApplicationRecord
 
     self.primary_key = "id"
-    belongs_to :source
+    belongs_to :source, optional: true
     
     def add_source
 
         if self.job_url.include?(' ')
-            self.job_url="http://www.google.com"
+            self.job_url="http://www.yahoo.com"
         end
         if self.job_url=="http://"
             self.job_url="http://www.google.com"
