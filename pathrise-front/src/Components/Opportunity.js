@@ -6,7 +6,7 @@ const Opportunity = (props) => {
     return (
       <div className="Source">  
         <img className="logo"
-              src={props.opportunity.source.logo_file}
+              src={props.opportunity.source.logo_file ? props.opportunity.source.logo_file : ''}
               alt="logo"
             />
           <li className="list-item"><b> {props.opportunity.company_name}</b></li>
