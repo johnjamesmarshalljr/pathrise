@@ -1,12 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 
 const Opportunity = (props) => {
+  const currentSource = useSelector(state => state.sources.currentSource)
 
     return (
       <div className="Source">  
         <img className="logo"
-              src={props.opportunity.source.logo_file ? props.opportunity.source.logo_file : ''}
+              src={currentSource.logo_file}
               alt="logo"
             />
           <li className="list-item"><b> {props.opportunity.company_name}</b></li>
