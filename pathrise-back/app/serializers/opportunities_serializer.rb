@@ -12,6 +12,6 @@ class OpportunitiesSerializer
     object.source.name
   end
 
-  belongs_to :source
+  # belongs_to :source, optional: true
 
 end
