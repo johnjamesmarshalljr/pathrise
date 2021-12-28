@@ -1,3 +1,5 @@
+The app is live! https://hardcore-brown-a70b34.netlify.app/
+
 React/Rails App that takes 20,000+ job opportunities (from CSV file) and establishes relationship between the source and the opportunity.
 Set up the database, run migrations and seeds to create Source and Opportunity objects in Rails. Please refer to pathrise-back/app/models/opportunity.rb for the start of the job source resolution logic. It's a class method that allows you to resolve every opportunity to its sourced based on logic implemented and designed for this specific CSV file. You can run the method in the rails console with 'Opportunity.all.each{|o| o.add_source}'
 
